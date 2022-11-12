@@ -1,27 +1,22 @@
-import React from 'react'
+import React, {useState} from 'react'
 import Accordion from './components/Accordion';
+import Dropdown from './components/Dropdown';
 import Search from './components/Search';
+import { items } from './constants';
+import { options } from './constants';
 
-
-const items =[
-    {
-        title: 'What is React?',
-        content: 'React is a Frontend Framework'
-    },
-    { 
-        title: 'Why use React?',
-        content: 'React is a favorite JS library among engineers'
-    },
-    {
-        title: 'How do you use React?',
-        content: 'You use React by creating Components'
-    },
-];
 
 const App = () => {
+  const [selected, setSelected] = useState(options[0]);
+
   return (
     <div>
-     <Search />
+     <Dropdown 
+     selected ={selected} 
+     onSelectedChange={setSelected}
+     options={options} 
+
+     />
 
     </div>
   );
