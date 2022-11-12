@@ -22,11 +22,22 @@ const Search = () => {
 
         };
 
-        setTimeout(() => {
+    if(term && !results.length){
+        search();
+    } else{
+
+        const timeoutId = setTimeout(() => {
             if (term) {
                 search();
             }
         }, 500);
+
+        return ()=>{
+            clearTimeout(timeoutId);
+        };
+    }
+
+      
     }, [term]); 
 
 
