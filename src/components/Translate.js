@@ -25,7 +25,7 @@ const Translate = () => {
     const [text, setText] =useState('');
   return (
     <div>
-    <div className='ui form'>
+    <div className='container ui form'>
     <div className='field'>
     <label>Enter Text</label>
     <input value={text} onChange= {(e)=> setText(e.target.value)} />
@@ -38,9 +38,11 @@ const Translate = () => {
       onSelectedChange={setLanguage}
 
       />
+      <div className='container ui'>
       <hr />
-      <h3 className='ui header'>Output</h3>
+      <h3 className=' ui header'>Output</h3>
       <Convert text={text} language={language} />
+      </div>
     </div>
   );
 };
