@@ -48,3 +48,6 @@ const Translate = () => {
 };
 
 export default Translate
+
+
+//used Translate Api key instead coz of Paid feature
