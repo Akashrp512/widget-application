@@ -5,6 +5,7 @@ import Search from './components/Search';
 import { items } from './constants';
 import { options } from './constants';
 import Translate from './components/Translate';
+import Route from './components/Route';
 
 const showAccordion =() =>{
   if(window.location.pathname === '/'){
@@ -29,13 +30,22 @@ const showTranslate =() =>{
 
 const App = () => {
   
+const [selected, setSelected] = useState(options[0])
+
   return (
     <div>
-   {showAccordion()}
-   {showList()}
-   {showDropdown()}
-   {showTranslate()}
-
+   <Route path="/">
+    <Accordion items={items} />
+   </Route>
+   <Route path="/dropdown">
+    <Dropdown label="Select a color" options={options} selected={selected} onSelectedChange={setSelected} />
+   </Route>
+   <Route path="/list">
+    <Search />
+   </Route>
+   <Route path="/translate">
+    <Translate />
+   </Route>
     </div>
   );
 };
