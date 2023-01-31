@@ -16,7 +16,7 @@ const Search = () => {
                 format: 'json',
                 srsearch: term,
             },
-            });
+            },[]);
 
             setResults(data.query.search);
 
